@@ -41,9 +41,7 @@ We ask difficult questions: Who benefits? What's the real cost of inaction? What
 
 We design reusable, openly available tools so others don't repeat the effort. This multiplies impact and builds collective knowledge for the civic tech community.
 
-### Embrace Open Collaboration
 
-We invite builders to challenge our work, push it further, and improve it together through collaborative #goodvibing that makes our solutions stronger.
 
 ## Next Steps
 
