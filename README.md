@@ -25,27 +25,58 @@ SLMs are efficient, compact AI models with millions to a few billion parameters�
 
 By choosing SLMs, we align our toolkit with our values: work small and local, create accessible and community-driven tools, and resist corporate dependence.
 
+## Responsible Computing Principles
+
+### 1. TECHNOLOGY AS SITUATED
+   • Algorithms and datasets are not objective
+   • They encode:
+     - Historical dynamics and cultural norms
+     - Institutional practices and human biases
+     - The values and assumptions of the people who created them
+   • Understanding the context of creation is essential
+   • Recognizing what values technology carries forward is critical
+   
+### 2. STAKEHOLDER IMPACT ANALYSIS
+   • Technical projects affect different groups unequally
+   • Marginalized and vulnerable populations often experience disproportionate harm
+   • Critical questions to ask:
+     - Who benefits from this system?
+     - Who bears the risks?
+     - Whose interests are not represented?
+     - Which communities are most vulnerable to harm?
+   
+### 3. POWER AND VALUE CHOICES
+   • Every technical decision involves value judgments
+   • Ask yourself:
+     - Who has power in system design?
+     - What economic incentives guide implementation?
+     - How are trade-offs decided?
+     - Whose preferences are prioritized?
+   • Trace these choices through:
+     - Hardware architecture
+     - Software implementation
+     - Data science models
+   • Make choices visible and contestable
+   
+4. MULTIDISCIPLINARY EVALUATION
+   • Ethical dilemmas cannot be solved through quantitative metrics alone
+   • Bring qualitative tools from STS (Science, Technology, and Society) 
+     alongside technical analysis
+   • Avoid isolated decision-making
+   • Engage:
+     - Stakeholders affected by the system
+     - Historians and social scientists
+     - Affected communities
+     - People with lived experience of the problem you're solving
+
+
+–
+
+
 ## Our Approach
 
 We ground our work in three core impact areas: human and societal impact, future systems, and environmental responsibility.
-
-### Prioritize Small, Independent Tools
-
-We choose small language models like Hugging Face's SmolLM that operate independently of Big Tech platforms. This reinforces "work small and local," creating accessible, community-driven tools rather than corporate-dependent systems.
-
-### Practice Second-Order Thinking
-
-We ask difficult questions: Who benefits? What's the real cost of inaction? What tradeoffs emerge for humans, systems, and the environment? This discipline ensures intentional building, not reactive momentum.
-
-### Build Evergreen Systems
-
-We design reusable, openly available tools so others don't repeat the effort. This multiplies impact and builds collective knowledge for the civic tech community.
-
-
-
-## Next Steps
-
-We're moving forward with three complementary workstreams to bring Smol Gardens to life:
+We're moving forward with three workstreams as we refine the builder's guide:
 
 ### 1. Develop Impact Framework
 
