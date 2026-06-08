@@ -1,13 +1,13 @@
 # Smol Gardens Project: Building Accountable AI tools for Civic Tech
 
 ## Overview
-Smol Gardens is an initiative by the Femmecubator team, introduced at BetaNYC's UnSchool of Data 2026 conference on March 28, 2026, as part of the Open Civic Tech initiative. Inspired by Anil Dash's 2012 essay "The Web We Lost," which critiqued internet fragmentation, Smol Gardens challenges civic technologists to build responsibly with AI—moving beyond large language models toward ethical alternatives like small language models (SLMs).
-
-> At its core, Smol Gardens asks: **"Is it possible to make meaningful civic tech in the age of AI while maintaining accountability?"**
+Smol Gardens is an initiative by the Femmecubator team, introduced at BetaNYC's UnSchool of Data 2026 conference on March 28, 2026, as part of the Open Civic Tech initiative. Inspired by Anil Dash's 2012 essay "The Web We Lost," which critiqued internet fragmentation, Smol Gardens challenges civic technologists to build responsibly with AI, promoting responsible computing principles, and ethical alternatives such as small language models (SLMs).
 
 ## The Challenge
 
 Civic technologists face a critical tension: rapid AI-driven development (vibecoding) offers speed and efficiency, but at a significant cost. We must ask ourselves: How do we build responsibly? What are the real consequences of AI-accelerated development? And what alternatives exist that don't create redundant, unmaintainable, or harmful solutions?
+
+> At its core, Smol Gardens asks: **"Is it possible to make meaningful civic tech in the age of AI while maintaining accountability?"**
 
 ### Current Landscape
 
