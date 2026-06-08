@@ -58,7 +58,7 @@ By choosing SLMs, we align our toolkit with our values: work small and local, cr
      - Data science models
    • Make choices visible and contestable
    
-4. MULTIDISCIPLINARY EVALUATION
+### 4. MULTIDISCIPLINARY EVALUATION
    • Ethical dilemmas cannot be solved through quantitative metrics alone
    • Bring qualitative tools from STS (Science, Technology, and Society) 
      alongside technical analysis
