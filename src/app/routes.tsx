@@ -3,7 +3,7 @@ import SiteHeader from "./components/SiteHeader";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Seedscore from "./pages/Seedscore";
-import Placeholder from "./pages/Placeholder";
+import Topics from "./pages/Topics";
 
 function Root() {
   return (
@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
       { index: true, Component: Home },
       { path: "about", Component: About },
       { path: "seedscore", Component: Seedscore },
-      { path: "topics", Component: () => <Placeholder title="Topics" /> },
+      { path: "topics", Component: Topics },
     ],
   },
 ]);
