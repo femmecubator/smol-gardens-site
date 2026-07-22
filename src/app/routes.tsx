@@ -1,6 +1,7 @@
 import { createBrowserRouter, Outlet } from "react-router";
 import SiteHeader from "./components/SiteHeader";
 import Home from "./pages/Home";
+import About from "./pages/About";
 import Seedscore from "./pages/Seedscore";
 import Placeholder from "./pages/Placeholder";
 
@@ -21,7 +22,7 @@ export const router = createBrowserRouter([
     Component: Root,
     children: [
       { index: true, Component: Home },
-      { path: "about", Component: () => <Placeholder title="About" /> },
+      { path: "about", Component: About },
       { path: "seedscore", Component: Seedscore },
       { path: "topics", Component: () => <Placeholder title="Topics" /> },
     ],
