@@ -1,0 +1,38 @@
+---
+id: projects-beagle
+title: ''
+sidebar_label: Beagle
+sidebar_position: 2
+hide_table_of_contents: true
+---
+
+import Banner from '@site/src/components/Banner'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+import Summary from './_summary.mdx'
+import Contributors from './_contributors.mdx'
+import Updates from './_proj-updates.mdx'
+import configs from '../_configs.ts'
+
+<Banner
+  goalStatement={configs.beagle.goal_statement}
+  projectTags={configs.beagle.project_tags}
+/>
+
+<Tabs>
+  <TabItem value="summary" label="Summary" default>
+    <Summary
+      headline={configs.beagle.headline}
+      description={configs.beagle.description}
+      level={configs.beagle.level_of_difficulty}
+      roles={configs.beagle.roles}
+    />
+  </TabItem>
+   <TabItem value="updates" label="Updates" default>
+    <Updates />
+  </TabItem>
+  <TabItem value="contributors" label="Contributors">
+      <Contributors />
+  </TabItem>
+</Tabs>

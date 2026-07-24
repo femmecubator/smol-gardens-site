@@ -1,0 +1,38 @@
+---
+id: projects-akita
+title: ''
+sidebar_label: Akita
+sidebar_position: 1
+hide_table_of_contents: true
+---
+
+import Banner from '@site/src/components/Banner'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+import configs from '../_configs.ts'
+import Summary from './_summary.mdx'
+import Contributors from './_contributors.mdx'
+import Updates from './_proj-updates.mdx'
+
+<Banner
+  goalStatement={configs.Akita.goal_statement}
+  projectTags={configs.Akita.project_tags}
+/>
+
+<Tabs>
+  <TabItem value="summary" label="Summary" default>
+    <Summary
+      headline={configs.Akita.headline}
+      description={configs.Akita.description}
+      level={configs.Akita.level_of_difficulty}
+      roles={configs.Akita.roles}
+    />
+  </TabItem>
+  <TabItem value="updates" label="Updates" default>
+    <Updates />
+  </TabItem>
+  <TabItem value="contributors" label="Contributors">
+    <Contributors />
+  </TabItem>
+</Tabs>

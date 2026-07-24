@@ -1,0 +1,11 @@
+.button {
+  width: 200px;
+  color: var(--ifm-color-primary);
+  border-radius: 20px;
+  background: transparent;
+  padding: 12px 18px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: 2px solid var(--ifm-color-primary-lightest);
+  cursor: pointer;
+}

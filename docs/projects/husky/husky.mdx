@@ -1,0 +1,38 @@
+---
+id: projects-husky
+title: ''
+sidebar_label: Husky
+sidebar_position: 7
+hide_table_of_contents: true
+---
+
+import Banner from '@site/src/components/Banner'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+import configs from '../_configs.ts'
+import Summary from './_summary.mdx'
+import Contributors from './_contributors.mdx'
+import Updates from './_proj-updates.mdx'
+
+<Banner
+  goalStatement={configs.husky.goal_statement}
+  projectTags={configs.husky.project_tags}
+/>
+
+<Tabs>
+  <TabItem value="summary" label="Summary" default>
+    <Summary
+      headline={configs.husky.headline}
+      description={configs.husky.description}
+      level={configs.husky.level_of_difficulty}
+      roles={configs.husky.roles}
+    />
+  </TabItem>
+  <TabItem value="updates" label="Updates" default>
+    <Updates />
+  </TabItem>
+  <TabItem value="contributors" label="Contributors">
+    <Contributors />
+  </TabItem>
+</Tabs>
