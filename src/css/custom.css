@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat&family=Work+Sans&display=swap');
+
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  /* Infima & docusaurus overrides */
+  --ifm-color-primary: #2a00ff;
+  --ifm-color-primary-dark: #2600e6;
+  --ifm-color-primary-darker: #2400d9;
+  --ifm-color-primary-darkest: #1d00b3;
+  --ifm-color-primary-light: #3f1aff;
+  --ifm-color-primary-lighter: #4a26ff;
+  --ifm-color-primary-lightest: #6e52ff;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-font-family-base: 'Inter', sans-serif;
+  --ifm-heading-font-family: 'Work Sans', sans-serif;
+  --ifm-font-color-base: #626262;
+  --ifm-navbar-link-color: #333;
+  --ifm-navbar-item-padding-horizontal: 1rem;
+  --ifm-navbar-link-hover-color: var(--ifm-navbar-link-color);
+  --ifm-navbar-padding-vertical: 30px;
+  --ifm-navbar-padding-horizontal: 40px;
+  --ifm-navbar-height: 100px;
+  --ifm-menu-color: #222;
+  --ifm-menu-link-padding-vertical: 12px;
+  --ifm-menu-link-padding-horizontal: 24px;
+
+  /* Custom-defined global vars */
+  --background-gray: #f8f9fc;
+  --black: #000;
+  --white: #fff;
+  --brand-neutral-neutral-10: #222222;
+}
+
+/* TODO might be able to remove if we are not using dark theme 👇 */
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+.navbar {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+}
+
+.navbar__logo {
+  height: 3rem;
+  margin-left: 48px;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  font-weight: 700;
+}
+
+.menu__link {
+  font-family: var(----ifm-font-family-base);
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.menu__link--active {
+  font-weight: 700;
+}
+
+.menu__link,
+.menu__caret,
+.menu__list-item-collapsible {
+  border-radius: 1rem;
+}
+
+.tabs {
+  padding: 0 2rem;
+  margin: 0 -1rem;
+  border-bottom: 1px solid var(--docusaurus-highlighted-code-line-bg);
+}
+
+div[class^='tabItem'] {
+  padding: 44px 112px;
+}
+
+@media (max-width: 996px) {
+  div[class^='tabItem'] {
+    padding: 44px 32px;
+  }
+  .navbar__logo {
+    margin-left: 0px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: none;
+  }
+}

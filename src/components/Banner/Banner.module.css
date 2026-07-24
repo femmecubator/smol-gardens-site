@@ -1,0 +1,25 @@
+.container {
+  color: var(--white);
+  background: var(--ifm-color-primary-lightest);
+  margin: -1rem -1rem 0;
+  padding: 44px;
+  font-size: 1.75rem;
+  line-height: 2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.tagList {
+  list-style-type: none;
+  font-size: 1rem;
+  gap: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 635px) {
+  .container {
+    padding: 24px;
+  }
+}

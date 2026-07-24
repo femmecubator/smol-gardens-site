@@ -1,31 +1,34 @@
 {
   "name": "launchpad-marketing-site",
-  "private": true,
   "version": "1.0.0",
-  "type": "module",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "serve": "docusaurus serve",
+    "clear": "docusaurus clear",
+    "swizzle": "docusaurus swizzle",
+    "typecheck": "tsc"
   },
   "dependencies": {
-    "clsx": "2.1.1",
+    "@docusaurus/core": "^3.7.0",
+    "@docusaurus/preset-classic": "^3.7.0",
+    "@mdx-js/react": "^3.0.0",
+    "clsx": "^2.1.1",
     "lucide-react": "0.487.0",
     "motion": "12.23.24",
-    "react-router": "7.13.0",
-    "tailwind-merge": "3.2.0"
+    "prism-react-renderer": "^2.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "4.1.12",
-    "@types/node": "^26.1.1",
-    "@types/react": "^18.3.31",
-    "@types/react-dom": "^18.3.7",
-    "@vitejs/plugin-react": "4.7.0",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
+    "@docusaurus/module-type-aliases": "^3.7.0",
+    "@docusaurus/tsconfig": "^3.7.0",
+    "@docusaurus/types": "^3.7.0",
+    "@tailwindcss/postcss": "4.1.12",
     "tailwindcss": "4.1.12",
-    "tw-animate-css": "1.3.8",
-    "typescript": "^5.6.3",
-    "vite": "6.3.5"
-  }
+    "typescript": "~5.6.3"
+  },
+  "engines": { "node": ">=18.0" }
 }

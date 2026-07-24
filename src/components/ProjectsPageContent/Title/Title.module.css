@@ -1,0 +1,9 @@
+.title {
+  color: var(--brand-neutral-neutral-10);
+  font-family: var(--ifm-heading-font-family);
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 40px 32px;
+}
