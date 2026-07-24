@@ -3,7 +3,7 @@
 @import "tailwindcss/utilities.css" layer(utilities);
 @source "../**/*.{js,jsx,ts,tsx}";
 
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat&family=Work+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap");
 
 /**
  * Any CSS included here will be global. The classic template
@@ -14,16 +14,16 @@
 /* You can override the default Infima variables here. */
 :root {
   /* Infima & docusaurus overrides */
-  --ifm-color-primary: #2a00ff;
-  --ifm-color-primary-dark: #2600e6;
-  --ifm-color-primary-darker: #2400d9;
-  --ifm-color-primary-darkest: #1d00b3;
-  --ifm-color-primary-light: #3f1aff;
-  --ifm-color-primary-lighter: #4a26ff;
-  --ifm-color-primary-lightest: #6e52ff;
+  --ifm-color-primary: #761fb1;
+  --ifm-color-primary-dark: #5f1790;
+  --ifm-color-primary-darker: #591687;
+  --ifm-color-primary-darkest: #49126f;
+  --ifm-color-primary-light: #8a2ac9;
+  --ifm-color-primary-lighter: #9235ce;
+  --ifm-color-primary-lightest: #a959d7;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --ifm-font-family-base: 'Inter', sans-serif;
+  --ifm-font-family-base: "Nunito Sans", system-ui, sans-serif;
   --ifm-heading-font-family: 'Work Sans', sans-serif;
   --ifm-font-color-base: #626262;
   --ifm-navbar-link-color: #333;

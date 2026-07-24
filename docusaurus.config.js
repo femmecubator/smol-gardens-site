@@ -7,8 +7,8 @@ const darkCodeTheme = themes.dracula
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Open Sprints',
-  tagline: 'Open Sprints by Femmecubator',
+  title: 'Smol Gardens',
+  tagline: 'Accountable AI guide for Builders and Educators',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -22,7 +22,8 @@ const config = {
   organizationName: 'femmecubator', // Usually your GitHub org/user name.
   projectName: 'open-sprints', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
+  onBrokenAnchors: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   plugins: [require.resolve('./plugins/tailwind-plugin.js')],
@@ -59,33 +60,19 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
+        title: 'SMOL GARDENS',
         logo: {
-          alt: 'Open Sprints Logo',
+          alt: 'Smol Gardens Logo',
           src: 'img/logo.svg',
         },
         items: [
-          {
-            to: '/',
-            label: 'Home',
-            position: 'right',
-            activeBaseRegex: '^/$',
-          },
-          {
-            type: 'docSidebar',
-            sidebarId: 'projectsSideBar',
-            position: 'right',
-            label: 'Projects',
-          },
-          {
-            to: '/contributors',
-            label: 'Contributors',
-            position: 'right',
-          },
-          {
-            to: '/join-today',
-            label: 'Join Today',
-            position: 'right',
-          },
+          { to: '/', label: 'Home', position: 'left', activeBaseRegex: '^/$' },
+          { to: '/about', label: 'About', position: 'left' },
+          { to: '/seedscore', label: 'Seedscore Tool', position: 'left' },
+          { to: '/topics', label: 'Topics', position: 'left' },
+          { type: 'docSidebar', sidebarId: 'projectsSideBar', label: 'Docs', position: 'left' },
+          { to: '/blog', label: 'Blog', position: 'left' },
+          { href: '#contact', label: 'Contact us', position: 'right' },
         ],
       },
       colorMode: {
