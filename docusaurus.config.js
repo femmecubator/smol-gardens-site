@@ -22,7 +22,7 @@ const config = {
   organizationName: 'femmecubator', // Usually your GitHub org/user name.
   projectName: 'open-sprints', // Usually your repo name.
 
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
   onBrokenAnchors: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
