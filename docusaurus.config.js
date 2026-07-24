@@ -46,6 +46,17 @@ const config = {
           // TODO 👇 might want to uncomment to turn back on if we want to enable user to edit page
           // editUrl: 'https://github.com/femmecubator/open-sprints/tree/main/',
           breadcrumbs: false,
+          // Internal planning docs (superpowers plans/specs) live under docs/ for
+          // tooling convention but must not publish on the marketing site.
+          // NOTE: overriding `exclude` replaces Docusaurus defaults, so the default
+          // partial/test globs are restored here alongside the superpowers exclude.
+          exclude: [
+            '**/_*.{js,jsx,ts,tsx,md,mdx}',
+            '**/_*/**',
+            '**/*.test.{js,jsx,ts,tsx}',
+            '**/__tests__/**',
+            '**/superpowers/**',
+          ],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
