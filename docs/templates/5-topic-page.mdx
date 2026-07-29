@@ -1,0 +1,113 @@
+---
+title: 'Topic page'
+hide_table_of_contents: true
+---
+
+# Topic page
+
+Starter for a new Smol Gardens topic. A topic is **two** things: an entry in
+`docs/topics/_configs.ts` and a folder next to it. Do both and the topic appears
+on `/topics` — card, tag chips, sidebar entry, and detail route — with no edit
+to any component or router.
+
+## 1. Add the config entry
+
+`docs/topics/_configs.ts` is the single source of truth. `id` must match the
+folder name you create in step 2.
+
+```ts
+MyNewTopic: {
+  id: 'my-new-topic',
+  title: 'My New Topic',
+  description: 'One or two sentences. This is what shows on the topic card.',
+  tags: ['accountability', 'community'],
+},
+```
+
+Reusing an existing tag adds the topic to that filter. A brand-new tag creates a
+new filter chip automatically — `ALL_TAGS` is derived from the config.
+
+## 2. Create the folder
+
+```
+docs/topics/my-new-topic/
+├─ my-new-topic.mdx   the page shell (below)
+└─ _summary.mdx       the content partial
+```
+
+Files starting with `_` are partials: Docusaurus does not give them their own
+route, so they only ever render where you import them.
+
+### `my-new-topic.mdx`
+
+The shell holds no copy of its own — it reads everything from the config, so the
+card and the page can never drift apart.
+
+```mdx
+---
+id: topics-my-new-topic
+title: ''
+sidebar_label: My New Topic
+hide_table_of_contents: true
+---
+
+import Banner from '@site/src/components/Banner'
+import configs from '../_configs.ts'
+import Summary from './_summary.mdx'
+
+<Banner
+  goalStatement={configs.MyNewTopic.description}
+  projectTags={configs.MyNewTopic.tags}
+/>
+
+<Summary
+  title={configs.MyNewTopic.title}
+  description={configs.MyNewTopic.description}
+  tags={configs.MyNewTopic.tags}
+/>
+```
+
+### `_summary.mdx`
+
+Receives whatever the shell passes as `props`. Write the long-form content here.
+
+```mdx
+# {props.title}
+
+<p>{props.description}</p>
+
+## Why it matters
+
+Your content.
+
+## How to apply it
+
+Your content.
+```
+
+## 3. Add more partials as the page grows
+
+Split long pages the way the shell already splits summary — one partial per
+section, each imported and composed in the shell:
+
+```mdx
+import Resources from './_resources.mdx'
+
+<Resources />
+```
+
+## Building blocks
+
+Compose these inside any partial:
+
+- [H2 title](./1-title.mdx)
+- [Title with body text](./2-title-with-body-text.mdx)
+- [Image](./3-image.mdx)
+- [Link](./4-link.mdx)
+
+## Checklist
+
+- [ ] Entry added to `docs/topics/_configs.ts`
+- [ ] Folder name matches the entry's `id`
+- [ ] `sidebar_label` set (the shell's `title` stays empty — `<Banner>` supplies the heading)
+- [ ] `npm run build` passes with no broken links

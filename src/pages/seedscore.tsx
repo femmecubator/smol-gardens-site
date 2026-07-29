@@ -1,6 +1,12 @@
 import Layout from "@theme/Layout";
+import Link from "@docusaurus/Link";
 import { ArrowRight } from "lucide-react";
 import content from "@site/src/data/seedscore";
+import topics from "@site/docs/topics/_configs";
+
+/** Look a topic up by its `id` so the label always matches the config. */
+const topicById = (id: string) =>
+  Object.values(topics).find((t) => t.id === id);
 
 export default function Seedscore() {
   return (
@@ -24,16 +30,32 @@ export default function Seedscore() {
             </p>
             <ul className="mt-4 list-disc space-y-2 pl-6 font-['Nunito_Sans'] text-[16px] leading-relaxed text-[#364153]">
               {content.bullets.map((b) => (
-                <li key={b}>{b}</li>
+                <li key={b.text}>
+                  {b.text}
+                  <span className="mt-1 flex flex-wrap gap-x-3 text-[14px]">
+                    {b.topicIds.map((id) => {
+                      const topic = topicById(id);
+                      return topic ? (
+                        <Link
+                          key={id}
+                          to={`/docs/topics/${topic.id}`}
+                          className="text-[#761fb1] underline"
+                        >
+                          {topic.title}
+                        </Link>
+                      ) : null;
+                    })}
+                  </span>
+                </li>
               ))}
             </ul>
-            <a
-              href={content.ctaHref}
+            <Link
+              to={content.ctaHref}
               className="mt-8 inline-flex h-[48px] w-fit items-center gap-2 rounded-[10px] bg-[#761fb1] px-5 font-['Inter'] text-[16px] text-white transition-colors hover:bg-[#5f1790]"
             >
               {content.ctaLabel}
               <ArrowRight size={20} strokeWidth={2} />
-            </a>
+            </Link>
           </div>
 
           <div className="lg:justify-self-end">

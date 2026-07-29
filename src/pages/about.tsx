@@ -1,6 +1,25 @@
 import Layout from "@theme/Layout";
+import Link from "@docusaurus/Link";
 import { ArrowRight } from "lucide-react";
 import content from "@site/src/data/about";
+import topics from "@site/docs/topics/_configs";
+
+/** Look a topic up by its `id` so the label always matches the config. */
+const topicById = (id: string) =>
+  Object.values(topics).find((t) => t.id === id);
+
+function TopicLink({ id }: { id: string }) {
+  const topic = topicById(id);
+  if (!topic) return null;
+  return (
+    <Link
+      to={`/docs/topics/${topic.id}`}
+      className="text-[16px] text-[#761fb1] underline"
+    >
+      Read more: {topic.title}
+    </Link>
+  );
+}
 
 export default function About() {
   return (
@@ -39,7 +58,8 @@ export default function About() {
                 {content.challenges.map((c) => (
                   <li key={c.lead}>
                     <span className="font-bold">{c.lead}</span>
-                    <span>{c.rest}</span>
+                    <span>{c.rest}</span>{" "}
+                    <TopicLink id={c.topicId} />
                   </li>
                 ))}
               </ol>
@@ -52,13 +72,13 @@ export default function About() {
               ))}
             </div>
 
-            <a
-              href={content.ctaHref}
+            <Link
+              to={content.ctaHref}
               className="mt-8 inline-flex h-[48px] w-fit items-center gap-2 rounded-[10px] bg-[#761fb1] px-5 font-['Inter'] text-[16px] text-white transition-colors hover:bg-[#5f1790]"
             >
               {content.ctaLabel}
               <ArrowRight size={20} strokeWidth={2} />
-            </a>
+            </Link>
           </div>
 
           <div className="lg:sticky lg:top-[120px] lg:self-start">
@@ -77,7 +97,7 @@ export default function About() {
               {content.approachHeading}
             </h2>
             <div className="mt-14 grid grid-cols-1 gap-12 md:grid-cols-3">
-              {content.approach.map(({ icon: Icon, title, body }) => (
+              {content.approach.map(({ icon: Icon, title, body, topicId }) => (
                 <div key={title} className="flex flex-col items-center text-center">
                   <Icon size={48} className="text-[#364153]" strokeWidth={1.75} />
                   <h3 className="mt-5 font-['Inter'] text-[18px] text-[#364153]">
@@ -86,6 +106,9 @@ export default function About() {
                   <p className="mt-5 font-['Inter'] text-[16px] leading-[28px] text-[#364153]">
                     {body}
                   </p>
+                  <span className="mt-3">
+                    <TopicLink id={topicId} />
+                  </span>
                 </div>
               ))}
             </div>
