@@ -12,15 +12,17 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://www.opensprints.tech',
+  // TODO: replace with the real Smol Gardens production domain before deploying.
+  // Only affects sitemap/canonical/absolute URLs — not local dev or the build.
+  url: 'https://kriziaf.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'femmecubator', // Usually your GitHub org/user name.
-  projectName: 'open-sprints', // Usually your repo name.
+  organizationName: 'kriziaf', // Usually your GitHub org/user name.
+  projectName: 'launchpad-marketing-site', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'warn',
@@ -58,6 +60,10 @@ const config = {
             '**/superpowers/**',
           ],
         },
+        // The seed blog was Docusaurus tutorial content (2019/2021 sample
+        // posts). Removed with the rest of the open-sprints seed; re-enable
+        // when Smol Gardens has real posts to publish.
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -82,7 +88,6 @@ const config = {
           { to: '/seedscore', label: 'Seedscore Tool', position: 'left' },
           { to: '/topics', label: 'Topics', position: 'left' },
           { type: 'docSidebar', sidebarId: 'projectsSideBar', label: 'Docs', position: 'left' },
-          { to: '/blog', label: 'Blog', position: 'left' },
           { href: '#contact', label: 'Contact us', position: 'right' },
         ],
       },

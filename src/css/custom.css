@@ -3,7 +3,9 @@
 @import "tailwindcss/utilities.css" layer(utilities);
 @source "../**/*.{js,jsx,ts,tsx}";
 
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap");
+/* Only the two families actually used by components are fetched. Poppins was
+   imported here but referenced nowhere, costing a font download per page load. */
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700&family=Inter:wght@400;500;600;700&display=swap");
 
 /**
  * Any CSS included here will be global. The classic template
@@ -24,7 +26,9 @@
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-font-family-base: "Nunito Sans", system-ui, sans-serif;
-  --ifm-heading-font-family: 'Work Sans', sans-serif;
+  /* Was 'Work Sans', which is never imported — headings silently fell back to
+     the generic sans-serif. Use the family the pages actually load. */
+  --ifm-heading-font-family: "Nunito Sans", system-ui, sans-serif;
   --ifm-font-color-base: #626262;
   --ifm-navbar-link-color: #333;
   --ifm-navbar-item-padding-horizontal: 1rem;
@@ -43,21 +47,12 @@
   --brand-neutral-neutral-10: #222222;
 }
 
-/* TODO might be able to remove if we are not using dark theme 👇 */
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-}
+/* Dark-theme overrides removed: themeConfig sets colorMode.disableSwitch with
+   defaultMode 'light', so [data-theme='dark'] never matched. */
 
 .navbar {
-  font-family: 'Montserrat', sans-serif;
+  /* Was 'Montserrat' — also never imported. */
+  font-family: var(--ifm-font-family-base);
   font-size: 1rem;
 }
 
@@ -72,7 +67,9 @@
 }
 
 .menu__link {
-  font-family: var(----ifm-font-family-base);
+  /* Was `var(----ifm-font-family-base)` (four dashes) — an invalid custom
+     property name, so the sidebar links inherited no font-family at all. */
+  font-family: var(--ifm-font-family-base);
   font-size: 1rem;
   line-height: 1.5rem;
 }
