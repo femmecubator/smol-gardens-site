@@ -4,8 +4,18 @@ import type { LucideIcon } from "lucide-react";
 /** A run of banner text; a plain string renders as text, an object as a link. */
 export type TextSegment = string | { text: string; href: string };
 
-export type Challenge = { lead: string; rest: string };
-export type ApproachItem = { icon: LucideIcon; title: string; body: string };
+/**
+ * `topicId` links a challenge or approach item to the topic that covers it in
+ * depth. It must match an `id` in `docs/topics/_configs.ts`; the pages build
+ * the href from it, so a topic renamed there is renamed here in one place.
+ */
+export type Challenge = { lead: string; rest: string; topicId: string };
+export type ApproachItem = {
+  icon: LucideIcon;
+  title: string;
+  body: string;
+  topicId: string;
+};
 
 export type AboutContent = {
   originBanner: TextSegment[];
@@ -43,22 +53,27 @@ const about: AboutContent = {
     {
       lead: "Lack of frameworks for responsible AI-enabled design ",
       rest: "- there's no clear, accessible methodology that allows practitioners to balance speed with responsibility while building civic tech.",
+      topicId: "impact-assessment",
     },
     {
       lead: "Lack of transparency and unaccountability ",
       rest: "- current AI development practices often lack transparency about tradeoffs, making it difficult for communities to understand how AI systems will impact them or to offer meaningful critique.",
+      topicId: "transparency-reporting",
     },
     {
       lead: "Scale mismatch",
       rest: " - large language models (LLMs) are presented as the default solution, but they may be overkill for many applications and come with disproportionate environmental and resource costs.",
+      topicId: "model-right-sizing",
     },
     {
       lead: "Weakened community agency",
       rest: " - without continuous accountability mechanisms and openness to critique, affected communities lose the ability to shape and govern the AI systems being built for them.",
+      topicId: "community-governance",
     },
     {
       lead: "No clear alternative path ",
       rest: "- practitioners who want to build differently lack both a practical toolkit and evidence that smaller, more efficient AI models can deliver meaningful civic tech solutions.",
+      topicId: "open-source-tooling",
     },
   ],
   whoHeading: "Who Is This For?",
@@ -68,7 +83,7 @@ const about: AboutContent = {
     "In the workshops, participants will be invited to document and audit their work using an impact assessment framework.",
   ],
   ctaLabel: "Check out our research docs",
-  ctaHref: "#",
+  ctaHref: "/topics",
   image: "/img/about-postits.jpg",
   imageAlt: "Sticky notes on a wall mapping out challenges around AI accountability",
   approachHeading: "Our Approach",
@@ -77,16 +92,19 @@ const about: AboutContent = {
       icon: Users,
       title: "Design Workshops",
       body: 'Invite participants to document actual AI usage through a "diary mission," using the Impact assessment tool as guide.',
+      topicId: "transparency-reporting",
     },
     {
       icon: Lightbulb,
       title: "Impact Framework",
       body: "Create the impact assessment tracking tool. We're developing a framework that measures human, systems, and environmental impact on AI-enabled web-development.",
+      topicId: "impact-assessment",
     },
     {
       icon: Target,
       title: "Small Language Models",
       body: "Use small language models (SLMs) to build a curated repository of civic tech tools hosted by the Accountable Tech working group and will be made available open source for future builders.",
+      topicId: "open-source-tooling",
     },
   ],
 };
