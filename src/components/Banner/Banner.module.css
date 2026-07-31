@@ -1,25 +1,51 @@
+/* Topic page header — Figma node 2213:1617, inside the "PAGE - Project Page
+   template" section. Full-bleed green block, content centred, 44px top /
+   24px bottom padding. Replaces the open-sprints purple goal-statement banner. */
 .container {
-  color: var(--white);
-  background: var(--ifm-color-primary-lightest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 193px;
   margin: -1rem -1rem 0;
-  padding: 44px;
-  font-size: 1.75rem;
-  line-height: 2rem;
-  font-weight: 700;
+  padding: 44px 24px 24px;
+  background: var(--color-bg-banner);
   text-align: center;
 }
 
-.tagList {
-  list-style-type: none;
-  font-size: 1rem;
-  gap: 1rem;
+.textFrame {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
   align-items: center;
+  color: var(--color-content-default);
+  word-break: break-word;
 }
 
-@media screen and (max-width: 635px) {
+/* Heading/H1 Semibold: Work Sans 600, 36px. */
+.title {
+  margin: 0;
+  font-family: "Work Sans", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: normal;
+}
+
+/* Semantic/body/default: Inter 400, 16/20, capped at 470px like the design. */
+.subtitle {
+  margin: 0;
+  max-width: 470px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+@media screen and (max-width: 996px) {
   .container {
-    padding: 24px;
+    min-height: 0;
+    padding: 32px 24px 24px;
+  }
+  .title {
+    font-size: 28px;
   }
 }

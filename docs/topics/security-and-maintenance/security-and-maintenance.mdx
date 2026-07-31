@@ -6,16 +6,30 @@ hide_table_of_contents: true
 ---
 
 import Banner from '@site/src/components/Banner'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
 import configs from '../_configs.ts'
 import Summary from './_summary.mdx'
 
 <Banner
-  goalStatement={configs.SecurityAndMaintenance.description}
-  projectTags={configs.SecurityAndMaintenance.tags}
+  title={configs.SecurityAndMaintenance.title}
+  subtitle={configs.SecurityAndMaintenance.description}
 />
 
-<Summary
-  title={configs.SecurityAndMaintenance.title}
-  description={configs.SecurityAndMaintenance.description}
-  tags={configs.SecurityAndMaintenance.tags}
-/>
+<Tabs>
+  <TabItem value="summary" label="Summary" default>
+    <Summary
+      title={configs.SecurityAndMaintenance.title}
+      description={configs.SecurityAndMaintenance.description}
+      tags={configs.SecurityAndMaintenance.tags}
+    />
+  </TabItem>
+  <TabItem value="resources" label="Related Resources">
+    Nothing here yet. Split this into a `_related-resources.mdx` partial and
+    import it once there is content — see [Topic page](/docs/templates/topic-page).
+  </TabItem>
+  <TabItem value="projects" label="Projects">
+    No projects reference this topic yet.
+  </TabItem>
+</Tabs>

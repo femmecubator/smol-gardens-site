@@ -41,7 +41,8 @@ route, so they only ever render where you import them.
 ### `my-new-topic.mdx`
 
 The shell holds no copy of its own — it reads everything from the config, so the
-card and the page can never drift apart.
+card and the page can never drift apart. `<Banner>` renders the green header;
+the three tabs match the project-page template in Figma.
 
 ```mdx
 ---
@@ -52,20 +53,36 @@ hide_table_of_contents: true
 ---
 
 import Banner from '@site/src/components/Banner'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
 import configs from '../_configs.ts'
 import Summary from './_summary.mdx'
 
 <Banner
-  goalStatement={configs.MyNewTopic.description}
-  projectTags={configs.MyNewTopic.tags}
+  title={configs.MyNewTopic.title}
+  subtitle={configs.MyNewTopic.description}
 />
 
-<Summary
-  title={configs.MyNewTopic.title}
-  description={configs.MyNewTopic.description}
-  tags={configs.MyNewTopic.tags}
-/>
+<Tabs>
+  <TabItem value="summary" label="Summary" default>
+    <Summary
+      title={configs.MyNewTopic.title}
+      description={configs.MyNewTopic.description}
+      tags={configs.MyNewTopic.tags}
+    />
+  </TabItem>
+  <TabItem value="resources" label="Related Resources">
+    Links and reading for this topic.
+  </TabItem>
+  <TabItem value="projects" label="Projects">
+    Projects that put this topic into practice.
+  </TabItem>
+</Tabs>
 ```
+
+Keep `title: ''` in the frontmatter — `<Banner>` supplies the page heading, so a
+frontmatter title would render a second one above it.
 
 ### `_summary.mdx`
 
@@ -87,14 +104,25 @@ Your content.
 
 ## 3. Add more partials as the page grows
 
-Split long pages the way the shell already splits summary — one partial per
-section, each imported and composed in the shell:
+The Related Resources and Projects tabs start as inline placeholder text. Once
+either has real content, move it into its own partial and import it — same shape
+as `_summary.mdx`:
 
 ```mdx
-import Resources from './_resources.mdx'
+import RelatedResources from './_related-resources.mdx'
 
-<Resources />
+<TabItem value="resources" label="Related Resources">
+  <RelatedResources />
+</TabItem>
 ```
+
+## Design reference
+
+The green header, tab row, and content block come from the **PAGE - Project Page
+template** section in the Smol Gardens Figma (node `2213:2590`). Key values are
+already wired into `src/css/custom.css` as tokens — `--color-bg-banner`,
+`--color-content-default`, `--radius-medium` — so use those rather than new
+hex literals.
 
 ## Building blocks
 
