@@ -30,6 +30,33 @@ const config = {
 
   plugins: [require.resolve('./plugins/tailwind-plugin.js')],
 
+  // Webfonts must be loaded here rather than via @import in custom.css: the
+  // Tailwind `@source` at-rule precedes it there, which makes the @import
+  // invalid so PostCSS strips it and no font loads at all.
+  // Families come from the Figma tokens — Work Sans (H1), Montserrat
+  // (display), Inter (body/labels) — plus Nunito Sans for the marketing pages.
+  stylesheets: [
+    {
+      href: 'https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700&family=Inter:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap',
+      type: 'text/css',
+    },
+  ],
+
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossorigin: 'anonymous',
+      },
+    },
+  ],
+
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
@@ -77,18 +104,26 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'SMOL GARDENS',
+        // No `title`: the logo artwork already contains the wordmark, so
+        // setting one renders "SMOL GARDENS" twice in the header.
         logo: {
-          alt: 'Smol Gardens Logo',
+          alt: 'Smol Gardens',
           src: 'img/logo.svg',
         },
+        // Matches the header in Figma node 2202:1561: four nav items, then the
+        // outlined "Join the working group" button. The docs sidebar is
+        // reachable from the Topics listing, so it is not a top-level item.
         items: [
           { to: '/', label: 'Home', position: 'left', activeBaseRegex: '^/$' },
           { to: '/about', label: 'About', position: 'left' },
-          { to: '/seedscore', label: 'Seedscore Tool', position: 'left' },
+          { to: '/seedscore', label: 'Try Seedscore', position: 'left' },
           { to: '/topics', label: 'Topics', position: 'left' },
-          { type: 'docSidebar', sidebarId: 'projectsSideBar', label: 'Docs', position: 'left' },
-          { href: '#contact', label: 'Contact us', position: 'right' },
+          {
+            to: '/docs/topics/community-governance',
+            label: 'Join the working group',
+            position: 'right',
+            className: 'navbar__cta',
+          },
         ],
       },
       colorMode: {
