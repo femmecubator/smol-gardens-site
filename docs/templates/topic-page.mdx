@@ -31,9 +31,16 @@ new filter chip automatically — `ALL_TAGS` is derived from the config.
 
 ```
 docs/topics/my-new-topic/
-├─ my-new-topic.mdx   the page shell (below)
-└─ _summary.mdx       the content partial
+├─ my-new-topic.mdx           the page shell (below)
+├─ _summary.mdx               the content partial
+└─ assets/
+   └─ my-new-topic.jpg        the topic's image
 ```
+
+Each topic owns its image in its own `assets/` folder rather than sharing one
+out of `static/`, so a topic folder is self-contained: copy it, rename it, swap
+the picture. Webpack fingerprints imported assets, so they cache better than
+files served straight from `static/` too.
 
 Files starting with `_` are partials: Docusaurus does not give them their own
 route, so they only ever render where you import them.
@@ -88,19 +95,43 @@ frontmatter title would render a second one above it.
 
 Receives whatever the shell passes as `props`. Write the long-form content here.
 
+`<ContentWithMedia>` is the two-column row from the project-page template —
+copy on the left, a circle-cropped image on the right. Leave `src` off and it
+renders a dashed placeholder circle, so the layout holds before the artwork
+exists. Because the crop is circular, pick artwork whose subject sits near the
+centre; the corners are always clipped.
+
 ```mdx
-# {props.title}
+import ContentWithMedia from '@site/src/components/ContentWithMedia'
+import topicImage from './assets/my-new-topic.jpg'
+
+<ContentWithMedia src={topicImage} alt="Describe the image here">
+
+## {props.title}
 
 <p>{props.description}</p>
+
+</ContentWithMedia>
 
 ## Why it matters
 
 Your content.
-
-## How to apply it
-
-Your content.
 ```
+
+Import the image rather than writing a path string — webpack then resolves and
+fingerprints it, and the build fails loudly if the file is missing instead of
+shipping a broken `<img>`.
+
+Before the artwork exists, drop both props and pass a label instead. The
+component renders a dashed placeholder circle of the same size, so the layout
+is already correct:
+
+```mdx
+<ContentWithMedia label="Topic image">
+```
+
+Blank lines around the Markdown inside the component are required — without
+them MDX treats the block as raw JSX and stops parsing the headings.
 
 ## 3. Add more partials as the page grows
 
@@ -123,15 +154,6 @@ template** section in the Smol Gardens Figma (node `2213:2590`). Key values are
 already wired into `src/css/custom.css` as tokens — `--color-bg-banner`,
 `--color-content-default`, `--radius-medium` — so use those rather than new
 hex literals.
-
-## Building blocks
-
-Compose these inside any partial:
-
-- [H2 title](./1-title.mdx)
-- [Title with body text](./2-title-with-body-text.mdx)
-- [Image](./3-image.mdx)
-- [Link](./4-link.mdx)
 
 ## Checklist
 

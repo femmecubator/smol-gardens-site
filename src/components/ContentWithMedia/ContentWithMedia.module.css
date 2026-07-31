@@ -1,0 +1,85 @@
+/* Topic-page content block — Figma "project-desc" (node 2241:1779), the row
+   that sits under the tab bar: copy on the left, a circular image on the right.
+
+   The node is 1242x400. Measured against that: ~474px copy column, ~300px
+   circle, both vertically centred in the 400px band, with the remaining space
+   falling between them. */
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+  min-height: 400px;
+}
+
+.copy {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 474px;
+}
+
+/* Strip the leading/trailing margin the MDX heading and last paragraph bring,
+   so the copy column centres on its own text rather than on its margins. */
+.copy > :first-child {
+  margin-top: 0;
+}
+
+.copy > :last-child {
+  margin-bottom: 0;
+}
+
+.media {
+  flex: 0 0 300px;
+  width: 300px;
+  max-width: 100%;
+}
+
+/* Circular, not a rounded rectangle — the mock crops the photo to a circle.
+   aspect-ratio + object-fit keep it round whatever the source dimensions are. */
+.image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Placeholder stands in until a real asset exists. Dashed so it never reads as
+   finished artwork in a review; same circle as the real image. */
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  aspect-ratio: 1 / 1;
+  border: 1px dashed var(--brand-neutral-04);
+  border-radius: 50%;
+  background: var(--color-bg-subtle);
+  color: var(--color-text-muted);
+  font-family: var(--ifm-font-family-base);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.placeholderIcon {
+  color: var(--color-icon-muted);
+}
+
+@media (max-width: 996px) {
+  .row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    min-height: 0;
+  }
+
+  .copy {
+    max-width: none;
+  }
+
+  .media {
+    flex: 0 0 auto;
+    width: 300px;
+  }
+}

@@ -26,7 +26,14 @@ const config = {
 
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+
+  // onBrokenMarkdownLinks moved here — the top-level option is deprecated and
+  // is removed in Docusaurus v4.
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   plugins: [require.resolve('./plugins/tailwind-plugin.js')],
 
@@ -101,8 +108,9 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      // Social/OG card. Previously img/docusaurus-social-card.jpg, which does
+      // not exist in static/ — every share preview requested a 404.
+      image: 'img/hero-team.jpg',
       navbar: {
         // No `title`: the logo artwork already contains the wordmark, so
         // setting one renders "SMOL GARDENS" twice in the header.
@@ -111,16 +119,19 @@ const config = {
           src: 'img/logo.svg',
         },
         // Matches the header in Figma node 2202:1561: four nav items, then the
-        // outlined "Join the working group" button. The docs sidebar is
-        // reachable from the Topics listing, so it is not a top-level item.
+        // outlined "Contact us" button. The docs sidebar is reachable from the
+        // Topics listing, so it is not a top-level item.
+        // All items sit in the right group: the design puts the logo alone on
+        // the left and the whole nav run flush right, ending level with the
+        // bar's right padding.
         items: [
-          { to: '/', label: 'Home', position: 'left', activeBaseRegex: '^/$' },
-          { to: '/about', label: 'About', position: 'left' },
-          { to: '/seedscore', label: 'Try Seedscore', position: 'left' },
-          { to: '/topics', label: 'Topics', position: 'left' },
+          { to: '/', label: 'Home', position: 'right', activeBaseRegex: '^/$' },
+          { to: '/about', label: 'About', position: 'right' },
+          { to: '/seedscore', label: 'Try Seedscore', position: 'right' },
+          { to: '/topics', label: 'Topics', position: 'right' },
           {
             to: '/docs/topics/community-governance',
-            label: 'Join the working group',
+            label: 'Contact us',
             position: 'right',
             className: 'navbar__cta',
           },

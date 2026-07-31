@@ -14,7 +14,7 @@ function TopicLink({ id }: { id: string }) {
   return (
     <Link
       to={`/docs/topics/${topic.id}`}
-      className="text-[16px] text-[#761fb1] underline"
+      className="text-[16px] text-[var(--color-accent)] underline"
     >
       Read more: {topic.title}
     </Link>
@@ -26,8 +26,12 @@ export default function About() {
     <Layout title="About" description="About the Smol Gardens project">
       <div>
         {/* Origin banner */}
-        <section className="bg-[#d5ffca] px-6 py-16 md:px-[200px]">
-          <p className="mx-auto max-w-[1200px] font-['Nunito_Sans'] text-[22px] leading-[28px] text-[#364153] md:text-[24px]">
+        {/* Full-bleed background, but the text sits in the same 1200/px-10
+            container the body sections use so both start on the same left
+            edge. Padding on the section itself put the banner 40px in from
+            the body copy. */}
+        <section className="bg-[var(--color-bg-banner)] py-16">
+          <p className="mx-auto max-w-[1200px] px-6 font-['Nunito_Sans'] text-[22px] leading-[28px] text-[var(--color-text-body)] md:px-10 md:text-[24px]">
             {content.originBanner.map((seg, i) =>
               typeof seg === "string" ? (
                 <span key={i}>{seg}</span>
@@ -43,11 +47,11 @@ export default function About() {
         {/* Challenges + image */}
         <section className="mx-auto grid max-w-[1200px] grid-cols-1 gap-16 px-6 py-16 md:px-10 lg:grid-cols-[1fr_488px]">
           <div className="max-w-[648px]">
-            <h2 className="font-['Nunito_Sans'] text-[27px] font-bold leading-[32px] tracking-tight text-[#101828]">
+            <h2 className="font-['Nunito_Sans'] text-[27px] font-bold leading-[32px] tracking-tight text-[var(--color-heading)]">
               {content.challengesHeading}
             </h2>
 
-            <div className="mt-6 space-y-5 font-['Nunito_Sans'] text-[18px] leading-[28px] text-[#364153]">
+            <div className="mt-6 space-y-5 font-['Nunito_Sans'] text-[18px] leading-[28px] text-[var(--color-text-body)]">
               {content.intro.map((p) => (
                 <p key={p} className="font-bold">
                   {p}
@@ -64,7 +68,7 @@ export default function About() {
                 ))}
               </ol>
 
-              <h3 className="pt-4 font-bold text-[23px] text-[#101828]">
+              <h3 className="pt-4 font-bold text-[23px] text-[var(--color-heading)]">
                 {content.whoHeading}
               </h3>
               {content.whoParagraphs.map((p) => (
@@ -74,7 +78,7 @@ export default function About() {
 
             <Link
               to={content.ctaHref}
-              className="mt-8 inline-flex h-[48px] w-fit items-center gap-2 rounded-[10px] bg-[#761fb1] px-5 font-['Inter'] text-[16px] text-white transition-colors hover:bg-[#5f1790]"
+              className="mt-8 inline-flex h-[48px] w-fit items-center gap-2 rounded-[10px] bg-[var(--color-button-primary)] px-5 font-['Inter'] text-[16px] text-white transition-colors hover:bg-[var(--color-button-primary-hover)]"
             >
               {content.ctaLabel}
               <ArrowRight size={20} strokeWidth={2} />
@@ -91,19 +95,19 @@ export default function About() {
         </section>
 
         {/* Our Approach */}
-        <section className="bg-[#fafafa] px-6 py-20">
+        <section className="bg-[var(--color-bg-subtle)] px-6 py-20">
           <div className="mx-auto max-w-[938px]">
-            <h2 className="text-center font-['Inter'] text-[28px] tracking-tight text-[#222]">
+            <h2 className="text-center font-['Inter'] text-[28px] tracking-tight text-[var(--color-content-default)]">
               {content.approachHeading}
             </h2>
             <div className="mt-14 grid grid-cols-1 gap-12 md:grid-cols-3">
               {content.approach.map(({ icon: Icon, title, body, topicId }) => (
                 <div key={title} className="flex flex-col items-center text-center">
-                  <Icon size={48} className="text-[#364153]" strokeWidth={1.75} />
-                  <h3 className="mt-5 font-['Inter'] text-[18px] text-[#364153]">
+                  <Icon size={48} className="text-[var(--color-text-body)]" strokeWidth={1.75} />
+                  <h3 className="mt-5 font-['Inter'] text-[18px] text-[var(--color-text-body)]">
                     {title}
                   </h3>
-                  <p className="mt-5 font-['Inter'] text-[16px] leading-[28px] text-[#364153]">
+                  <p className="mt-5 font-['Inter'] text-[16px] leading-[28px] text-[var(--color-text-body)]">
                     {body}
                   </p>
                   <span className="mt-3">

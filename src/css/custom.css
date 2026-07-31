@@ -36,7 +36,7 @@
   --ifm-heading-font-family: "Work Sans", system-ui, sans-serif;
   --ifm-font-color-base: #626262;
   --ifm-navbar-link-color: #333;
-  --ifm-navbar-item-padding-horizontal: 1rem;
+  --ifm-navbar-item-padding-horizontal: 1.25rem;
   --ifm-navbar-link-hover-color: var(--ifm-navbar-link-color);
   --ifm-navbar-padding-vertical: 30px;
   --ifm-navbar-padding-horizontal: 40px;
@@ -44,12 +44,6 @@
   --ifm-menu-color: #222;
   --ifm-menu-link-padding-vertical: 12px;
   --ifm-menu-link-padding-horizontal: 24px;
-
-  /* Custom-defined global vars */
-  --background-gray: #f8f9fc;
-  --black: #000;
-  --white: #fff;
-  --brand-neutral-neutral-10: #222222;
 
   /* Figma design tokens (file nF211bUbNaoxqqdUhkQ3Ld, node 2213:2590).
      Names mirror the Figma variable names so the two stay traceable. */
@@ -65,6 +59,31 @@
   --radius-medium: 8px;
   /* Topic banner fill, from the project-page template's header block. */
   --color-bg-banner: #d5ffca;
+  /* Primary action fill, from the hero/Seedscore CTA buttons in the mocks. */
+  --color-bg-action: #0e9888;
+
+  /* Application tokens. Every component references these rather than a hex
+     literal, so a palette change is edited here and nowhere else. */
+  --color-accent: var(--color-border-focus);
+  --color-accent-hover: #0e2a55;
+  /* Solid CTA buttons are the teal from the mocks, not the navy accent — the
+     navy stays on links, tag text, filter chips, and focus rings. */
+  --color-button-primary: var(--color-bg-action);
+  --color-button-primary-hover: #0c8678;
+  --color-border-subtle: #e5e7eb;
+  --color-border-muted: #cfcfcf;
+  --color-text-muted: #4a5565;
+  --color-text-secondary: var(--brand-neutral-08);
+  --color-text-strong: #0a0a0a;
+  --color-text-body: #364153;
+  --color-heading: #101828;
+  --color-icon-accent: #00a63e;
+  --color-icon-accent-bg: #dcfce7;
+  --color-icon-muted: #9ca3af;
+  --color-surface-nav-active: #e7e9ff;
+  /* Home hero background wash. */
+  --color-hero-glow-green: #d7f6e3;
+  --color-hero-glow-blue: #cfe0ff;
 }
 
 /* Dark-theme overrides removed: themeConfig sets colorMode.disableSwitch with
@@ -82,13 +101,33 @@
   font-weight: 600;
 }
 
+/* The design lays each nav item out in a fixed 180px box, but that only fits
+   at its 1440 artboard: 4x180 + the 238px CTA + the logo and its 55px margin
+   overflows anything narrower, pushing the CTA off the right edge. Items size
+   to their label instead, so the bar holds together down to the mobile
+   breakpoint. */
+
 .navbar__link:hover,
 .navbar__link--active {
   font-weight: 700;
   text-decoration: underline;
 }
 
-/* "Join the working group" — outlined button, not a plain nav link. */
+/* Never let the CTA be the thing that shrinks or wraps when the bar is tight —
+   it is the one item that must stay whole and on screen. */
+.navbar__cta {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+/* Separate the button from the last nav link so it reads as a button rather
+   than a fifth item. Scoped to the bar: the mobile sidebar lists it as a plain
+   menu row and wants no indent. */
+.navbar__items--right .navbar__cta {
+  margin-left: 24px;
+}
+
+/* "Contact us" — outlined button, not a plain nav link. */
 .navbar__cta,
 .navbar__cta:hover,
 .navbar__cta.navbar__link--active {
@@ -123,8 +162,23 @@
   line-height: 1.5rem;
 }
 
+/* Infima's default active state is --ifm-color-primary text over a 5% black
+   wash. Primary is the design's navy (#113264) and the base menu colour is
+   #222, so the "selected" row was navy-on-near-black with a barely visible
+   background — indistinguishable from the rest of the list. Use the same
+   active pill the topics page uses for its nav (--color-surface-nav-active),
+   so selection reads at a glance and the two navs agree.
+
+   :not(.menu__link--sublist) excludes the category header, which Infima also
+   marks --active whenever it merely *contains* the current page. */
 .menu__link--active {
   font-weight: 700;
+}
+
+.menu__link--active:not(.menu__link--sublist),
+.menu__link--active:not(.menu__link--sublist):hover {
+  background: var(--color-surface-nav-active);
+  color: var(--ifm-color-primary);
 }
 
 .menu__link,
@@ -136,11 +190,24 @@
 .tabs {
   padding: 0 2rem;
   margin: 0 -1rem;
-  border-bottom: 1px solid var(--docusaurus-highlighted-code-line-bg);
+  /* Was --docusaurus-highlighted-code-line-bg, a code-block highlight colour
+     being reused as a border. Use the design's neutral rule instead. */
+  border-bottom: 1px solid var(--brand-neutral-04);
 }
 
 div[class^='tabItem'] {
   padding: 44px 112px;
+}
+
+/* Below the 1440 artboard the logo's 55px inset and the bar's 40px padding are
+   the first things to give, so the nav items and CTA keep their room. */
+@media (max-width: 1400px) {
+  .navbar {
+    --ifm-navbar-padding-horizontal: 24px;
+  }
+  .navbar__logo {
+    margin-left: 8px;
+  }
 }
 
 @media (max-width: 996px) {
@@ -149,6 +216,12 @@ div[class^='tabItem'] {
   }
   .navbar__logo {
     margin-left: 0px;
+  }
+  /* Drop the CTA from the bar itself once space is tight — scoped to
+     .navbar__items--right so the mobile sidebar copy, which lives under
+     .navbar-sidebar__items, still lists it and the link stays reachable. */
+  .navbar__items--right .navbar__cta {
+    display: none;
   }
 }
 

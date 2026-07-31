@@ -9,6 +9,9 @@ build/
 # Docusaurus
 .docusaurus/
 
+# Vercel
+.vercel/
+
 # Vite
 .vite/
 
