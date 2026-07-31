@@ -36,7 +36,7 @@ const seedscore: SeedscoreContent = {
     },
   ],
   ctaLabel: "Start using Seedscore",
-  ctaHref: "/docs/topics/impact-assessment",
+  ctaHref: "https://seedscore.netlify.app",
   image: "/img/seedscore-report.png",
   imageAlt:
     "Seedscore environment report showing estimated CO₂, inference calls, model used, and efficiency comparison",

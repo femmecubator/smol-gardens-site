@@ -48,6 +48,6 @@ export const cards: HomeCard[] = [
     title: "Host a workshop",
     body: "Everything you need to run a Smol Gardens workshop — hosting instructions and materials included. Bring Smol Gardens to your community.",
     link: "Access workshop materials",
-    href: "/docs/templates/",
+    href: "/docs/templates/topic-page",
   },
 ];

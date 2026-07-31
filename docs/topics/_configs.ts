@@ -4,7 +4,8 @@
  * Mirrors the open-sprints `docs/projects/_configs.ts` pattern: this typed map
  * drives BOTH the listing UI (`src/components/TopicsPageContent`) and each
  * topic's detail page (`docs/topics/<id>/<id>.mdx`). Adding a topic means
- * adding an entry here plus a folder from `docs/templates/` — no router edit,
+ * adding an entry here plus a folder built from `docs/templates/topic-page.mdx`
+ * — no router edit,
  * no new component.
  */
 

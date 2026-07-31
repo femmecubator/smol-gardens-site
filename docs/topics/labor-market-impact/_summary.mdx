@@ -1,3 +1,11 @@
+import ContentWithMedia from '@site/src/components/ContentWithMedia'
+import topicImage from './assets/labor-market-impact.jpg'
+
+<ContentWithMedia
+  src={topicImage}
+  alt="Placeholder image: an Akita dog standing on grass beside a pond"
+>
+
 ## {props.title}
 
 <p>{props.description}</p>
@@ -8,10 +16,12 @@
   </u>
 </p>
 
+</ContentWithMedia>
+
 :::note Content wanted
 
 This topic page is scaffolding — the summary above is pulled from
-`docs/topics/_configs.ts`. Add the long-form sections below using the starters
-in [Templates](/docs/templates/).
+`docs/topics/_configs.ts`. Add the long-form sections below — see
+[Topic page](/docs/templates/topic-page) for the page structure.
 
 :::

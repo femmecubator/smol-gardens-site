@@ -38,7 +38,7 @@ export default function TopicsPageContent() {
           <button
             type="button"
             onClick={() => setToolsOpen((v) => !v)}
-            className="flex h-12 w-full items-center justify-between rounded-[16px] bg-[#e7e9ff] px-6 font-['Inter'] text-[16px] font-bold text-[#333]"
+            className="flex h-12 w-full items-center justify-between rounded-[16px] bg-[var(--color-surface-nav-active)] px-6 font-['Inter'] text-[16px] font-bold text-[var(--content-default)]"
           >
             Topics
             {toolsOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -48,8 +48,10 @@ export default function TopicsPageContent() {
               <button
                 type="button"
                 onClick={() => setActiveTag(null)}
-                className={`flex h-11 items-center px-6 text-left font-['Inter'] text-[16px] font-medium ${
-                  activeTag === null ? 'text-[#761fb1]' : 'text-[#515151]'
+                className={`flex h-11 items-center border-0 bg-transparent px-6 text-left font-['Inter'] text-[16px] font-medium ${
+                  activeTag === null
+                    ? 'text-[var(--color-accent)]'
+                    : 'text-[var(--color-text-secondary)]'
                 }`}
               >
                 All Topics
@@ -59,8 +61,10 @@ export default function TopicsPageContent() {
                   key={tag}
                   type="button"
                   onClick={() => setActiveTag(tag)}
-                  className={`flex h-11 items-center px-6 text-left font-['Inter'] text-[16px] font-medium capitalize ${
-                    activeTag === tag ? 'text-[#761fb1]' : 'text-[#515151]'
+                  className={`flex h-11 items-center border-0 bg-transparent px-6 text-left font-['Inter'] text-[16px] font-medium capitalize ${
+                    activeTag === tag
+                      ? 'text-[var(--color-accent)]'
+                      : 'text-[var(--color-text-secondary)]'
                   }`}
                 >
                   {tag.replace('-', ' ')}
@@ -73,18 +77,18 @@ export default function TopicsPageContent() {
 
       {/* Main */}
       <div className="min-w-0 flex-1">
-        <div className="flex flex-col gap-4 border-b border-[#e5e7eb] pb-6">
+        <div className="flex flex-col gap-4 border-b border-[var(--color-border-subtle)] pb-6">
           <div className="relative max-w-[420px]">
             <Search
               size={18}
-              className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[#9ca3af]"
+              className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[var(--color-icon-muted)]"
             />
             <input
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search topics, tags, or keywords…"
-              className="h-12 w-full rounded-[12px] border border-[#e5e7eb] bg-white pl-11 pr-4 font-['Inter'] text-[15px] text-[#222] outline-none focus:border-[#761fb1]"
+              className="h-12 w-full rounded-[12px] border border-[var(--color-border-subtle)] bg-white pl-11 pr-4 font-['Inter'] text-[15px] text-[var(--color-content-default)] outline-none focus:border-[var(--color-accent)]"
             />
           </div>
           <div className="flex flex-wrap gap-2">
@@ -93,8 +97,8 @@ export default function TopicsPageContent() {
               onClick={() => setActiveTag(null)}
               className={`rounded-full border px-4 py-1.5 font-['Inter'] text-[13px] transition-colors ${
                 activeTag === null
-                  ? 'border-[#761fb1] bg-[#761fb1] text-white'
-                  : 'border-[#e5e7eb] text-[#4a5565] hover:border-[#761fb1]'
+                  ? 'border-[var(--color-accent)] bg-[var(--color-accent)] text-white'
+                  : 'border-[var(--color-border-subtle)] text-[var(--color-text-muted)] hover:border-[var(--color-accent)]'
               }`}
             >
               All
@@ -106,8 +110,8 @@ export default function TopicsPageContent() {
                 onClick={() => setActiveTag(tag)}
                 className={`rounded-full border px-4 py-1.5 font-['Inter'] text-[13px] capitalize transition-colors ${
                   activeTag === tag
-                    ? 'border-[#761fb1] bg-[#761fb1] text-white'
-                    : 'border-[#e5e7eb] text-[#4a5565] hover:border-[#761fb1]'
+                    ? 'border-[var(--color-accent)] bg-[var(--color-accent)] text-white'
+                    : 'border-[var(--color-border-subtle)] text-[var(--color-text-muted)] hover:border-[var(--color-accent)]'
                 }`}
               >
                 #{tag.replace('-', ' ')}
@@ -123,7 +127,7 @@ export default function TopicsPageContent() {
             ))}
           </div>
         ) : (
-          <p className="mt-16 text-center font-['Inter'] text-[15px] text-[#4a5565]">
+          <p className="mt-16 text-center font-['Inter'] text-[15px] text-[var(--color-text-muted)]">
             No topics match your search. Try a different keyword or filter.
           </p>
         )}
