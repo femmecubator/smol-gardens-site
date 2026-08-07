@@ -81,6 +81,10 @@
   --color-icon-accent-bg: #dcfce7;
   --color-icon-muted: #9ca3af;
   --color-surface-nav-active: #e7e9ff;
+  /* Sidebar selected row: the focus navy at 18% over white. Distinct from
+     --color-surface-nav-active above, which is the topics page's own nav pill
+     and too pale to carry state on a white sidebar. */
+  --color-surface-nav-selected: #d4dae3;
   /* Home hero background wash. */
   --color-hero-glow-green: #d7f6e3;
   --color-hero-glow-blue: #cfe0ff;
@@ -164,10 +168,15 @@
 
 /* Infima's default active state is --ifm-color-primary text over a 5% black
    wash. Primary is the design's navy (#113264) and the base menu colour is
-   #222, so the "selected" row was navy-on-near-black with a barely visible
-   background — indistinguishable from the rest of the list. Use the same
-   active pill the topics page uses for its nav (--color-surface-nav-active),
-   so selection reads at a glance and the two navs agree.
+   #222, so the "selected" row was navy-on-near-black behind a background that
+   was effectively invisible.
+
+   The fill is navy at 18% over white, which is 1.41:1 against the page. A tint
+   needs roughly 1.3:1 before the eye registers it as a filled row at all — the
+   nav pill borrowed from the topics page (#e7e9ff) measured 1.20:1 and still
+   read as flat, which is what this replaces. A 3px navy rule on the leading
+   edge carries the state on its own, so selection does not depend on anyone
+   perceiving the tint.
 
    :not(.menu__link--sublist) excludes the category header, which Infima also
    marks --active whenever it merely *contains* the current page. */
@@ -177,8 +186,9 @@
 
 .menu__link--active:not(.menu__link--sublist),
 .menu__link--active:not(.menu__link--sublist):hover {
-  background: var(--color-surface-nav-active);
+  background: var(--color-surface-nav-selected);
   color: var(--ifm-color-primary);
+  box-shadow: inset 3px 0 0 var(--ifm-color-primary);
 }
 
 .menu__link,
