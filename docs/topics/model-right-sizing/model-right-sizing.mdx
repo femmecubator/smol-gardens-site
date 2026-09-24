@@ -11,6 +11,8 @@ import TabItem from '@theme/TabItem'
 
 import configs from '../_configs.ts'
 import Summary from './_summary.mdx'
+import Related Resources from './_related-resources.mdx'
+import Projects from './_projects.mdx'
 
 <Banner
   title={configs.ModelRightSizing.title}
@@ -26,10 +28,10 @@ import Summary from './_summary.mdx'
     />
   </TabItem>
   <TabItem value="resources" label="Related Resources">
-    Nothing here yet. Split this into a `_related-resources.mdx` partial and
-    import it once there is content — see [Topic page](/docs/templates/topic-page).
+    <Related Resources />
+
   </TabItem>
   <TabItem value="projects" label="Projects">
-    No projects reference this topic yet.
+    <Projects />
   </TabItem>
 </Tabs>
