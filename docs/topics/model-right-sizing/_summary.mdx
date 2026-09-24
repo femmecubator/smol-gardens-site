@@ -26,10 +26,46 @@ This topic page is scaffolding — the summary above is pulled from
 
 :::
 
-### test
 
-</ContentWithMedia>
+## Overview 
 
-## Why it matters
+### How small is “small” for language models?
 
-Your content.
+
+There’s no strict cutoff, but in practice, SLMs usually fall in the sub-1B to ~10B parameter range. Models in this range can often run on a single GPU without sharding or complex distributed inference setups.
+
+<br />
+
+### Are SLMs good enough for production?#
+
+Yes, for many use cases. Modern SLMs benefit from better training data, distillation, and post-training techniques, making them far more capable than earlier generations. In fact, you don’t need GPT-5.2-level capability for most real-world tasks.
+
+One of their biggest advantages is fine-tuning. Small models are easier and cheaper to fine-tune on proprietary data such as internal documents, domain-specific workflows, or product knowledge. In narrow or specialized tasks, a well fine-tuned small model can outperform much larger general-purpose models, running faster and at a fraction of the cost.
+
+As a result, SLMs are widely used in production for internal copilots, agent workflows and automation.
+
+<br />
+
+## Discussion Points
+
+Open Sprints landing page may have gaps in the experience. Ensure that the experience has a way for volunteer and mentors to sign up and so that partners also understand the overall mission and vision of both the community event and the long term goals of the org.
+
+<br />
+
+Ultimately, our call to action is to align the messaging to different set of target audience:
+
+<p>1) enable application process for project mentors </p>
+<p>
+  2) attract volunteers who will be maintainers of the site (Markdown content
+  editors, PR Reviews, General Maintenance)
+</p>
+<p>
+  3) provide a way for participants to join projects and in-person workathon.
+</p>
+
+<br />
+
+## Deep Dive Questions
+
+- What are your observations when using Small Language Models? 
+- Question 2
