@@ -36,7 +36,7 @@ export type AboutContent = {
 const about: AboutContent = {
   originBanner: [
     "Smol Gardens began as a concept presented by the Femmecubator team at ",
-    { text: "BetaNYC's UnSchool of Data 2026", href: "https://schoolofdata.nyc/" },
+    { text: "BetaNYC's UnSchool of Data 2026", href: "https://www.beta.nyc/event/unschool-of-data/" },
     " conference on March 2026, emerging from the Open Civic Tech initiative. The second workshop was presented at ",
     {
       text: "Makeshift 2026: Accountable Tech by Design event during NYC Design Week.",
@@ -46,7 +46,7 @@ const about: AboutContent = {
   challengesHeading: "Current Challenges: Human-AI Collaborative Workflows",
   intro: [
     "Designers, builders, and civic technologists are facing a core problem: how to develop civic tech responsibly in the age of AI without creating redundant, unmaintainable, or harmful solutions.",
-    "Is it possible to create meaningful work using LLM models? When a new wave of vibecoders (builders with no programming skills) are shipping websites in less than a day, there's a clear gap in accountability that needs to be addressed.",
+    "Is it possible to create meaningful work using LLM models? When a new wave of builders are shipping websites in less than a day, there's a clear gap in accountability that needs to be addressed.",
   ],
   challengesLede: "This creates several cascading challenges:",
   challenges: [
