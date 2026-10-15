@@ -144,7 +144,7 @@ const config = {
         items: [
           { to: '/', label: 'Home', position: 'right', activeBaseRegex: '^/$' },
           { to: '/about', label: 'About', position: 'right' },
-          { to: '/seedscore', label: 'Try Seedscore', position: 'right' },
+          { href: 'https://seedscore.netlify.app', label: 'Try Seedscore', position: 'right' },
           { to: '/topics', label: 'Topics', position: 'right' },
           {
             to: '/docs/topics/community-governance',
