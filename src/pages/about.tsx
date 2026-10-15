@@ -2,21 +2,6 @@ import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import { ArrowRight } from "lucide-react";
 import content from "@site/src/data/about";
-import { useTopics } from "@site/src/hooks/useTopics";
-
-function TopicLink({ id }: { id: string }) {
-  const topic = useTopics().find((t) => t.id === id);
-  if (!topic) return null;
-  return (
-    <Link
-      to={topic.href}
-      className="text-[16px] text-[var(--color-accent)] underline"
-    >
-      Read more: {topic.title}
-    </Link>
-  );
-}
-
 export default function About() {
   return (
     <Layout title="About" description="About the Smol Gardens project">
@@ -58,8 +43,7 @@ export default function About() {
                 {content.challenges.map((c) => (
                   <li key={c.lead}>
                     <span className="font-bold">{c.lead}</span>
-                    <span>{c.rest}</span>{" "}
-                    <TopicLink id={c.topicId} />
+                    <span>{c.rest}</span>
                   </li>
                 ))}
               </ol>
@@ -97,7 +81,7 @@ export default function About() {
               {content.approachHeading}
             </h2>
             <div className="mt-14 grid grid-cols-1 gap-12 md:grid-cols-3">
-              {content.approach.map(({ icon: Icon, title, body, topicId }) => (
+              {content.approach.map(({ icon: Icon, title, body }) => (
                 <div key={title} className="flex flex-col items-center text-center">
                   <Icon size={48} className="text-[var(--color-text-body)]" strokeWidth={1.75} />
                   <h3 className="mt-5 font-['Inter'] text-[18px] text-[var(--color-text-body)]">
@@ -106,9 +90,6 @@ export default function About() {
                   <p className="mt-5 font-['Inter'] text-[16px] leading-[28px] text-[var(--color-text-body)]">
                     {body}
                   </p>
-                  <span className="mt-3">
-                    <TopicLink id={topicId} />
-                  </span>
                 </div>
               ))}
             </div>
