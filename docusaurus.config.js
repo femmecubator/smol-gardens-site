@@ -56,10 +56,11 @@ const config = {
   // Tailwind `@source` at-rule precedes it there, which makes the @import
   // invalid so PostCSS strips it and no font loads at all.
   // Families come from the Figma tokens — Work Sans (H1), Montserrat
-  // (display), Inter (body/labels) — plus Nunito Sans for the marketing pages.
+  // (display), Inter (body/labels) — plus Nunito Sans for the marketing pages
+  // and Space Grotesk for the homepage (brand update).
   stylesheets: [
     {
-      href: 'https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700&family=Inter:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap',
+      href: 'https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700&family=Inter:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap',
       type: 'text/css',
     },
   ],

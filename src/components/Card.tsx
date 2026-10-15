@@ -18,11 +18,11 @@ export default function Card({ icon: Icon, title, body, link, href }: CardProps)
       <span className="flex size-16 items-center justify-center rounded-full bg-[var(--color-icon-accent-bg)]">
         <Icon size={32} className="text-[var(--color-icon-accent)]" strokeWidth={2} />
       </span>
-      <h3 className="mt-5 w-full text-center font-['Nunito_Sans'] text-[18px] font-bold leading-[24px] tracking-[-0.31px] text-[var(--color-text-strong)]">{title}</h3>
-      <p className="mt-5 w-full font-['Nunito_Sans'] text-[14px] leading-[24px] tracking-[-0.31px] text-[var(--color-text-muted)]">{body}</p>
+      <h3 className="mt-5 w-full text-center font-['Space_Grotesk'] text-[18px] font-bold leading-[24px] tracking-[-0.31px] text-[var(--color-text-strong)]">{title}</h3>
+      <p className="mt-5 w-full font-['Space_Grotesk'] text-[14px] leading-[24px] tracking-[-0.31px] text-[var(--color-text-muted)]">{body}</p>
       <Link
         to={href}
-        className="mt-1.5 w-full font-['Nunito_Sans'] text-[14px] font-bold leading-[24px] tracking-[-0.31px] text-[var(--color-content-default)] underline"
+        className="mt-1.5 w-full font-['Space_Grotesk'] text-[14px] font-bold leading-[24px] tracking-[-0.31px] text-[var(--color-content-default)] underline"
       >
         {link}
       </Link>
