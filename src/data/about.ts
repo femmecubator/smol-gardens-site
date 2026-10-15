@@ -6,8 +6,8 @@ export type TextSegment = string | { text: string; href: string };
 
 /**
  * `topicId` links a challenge or approach item to the topic that covers it in
- * depth. It must match an `id` in `docs/topics/_configs.ts`; the pages build
- * the href from it, so a topic renamed there is renamed here in one place.
+ * depth. It must match a file name in `docs/topics/` (no extension); items
+ * whose topic does not exist render without the link.
  */
 export type Challenge = { lead: string; rest: string; topicId: string };
 export type ApproachItem = {

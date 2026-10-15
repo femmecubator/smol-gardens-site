@@ -33,9 +33,24 @@ const config = {
     hooks: {
       onBrokenMarkdownLinks: 'warn',
     },
+    // Topic pages get their heading from the banner in
+    // src/theme/DocItem/Content and are laid out as tabs, which leaves no room
+    // for a table of contents. Default both off here so topic files stay pure
+    // content and editors never need to set them.
+    parseFrontMatter: async (params) => {
+      const result = await params.defaultParseFrontMatter(params)
+      if (params.filePath.includes('/docs/topics/')) {
+        result.frontMatter.hide_title ??= true
+        result.frontMatter.hide_table_of_contents ??= true
+      }
+      return result
+    },
   },
 
-  plugins: [require.resolve('./plugins/tailwind-plugin.js')],
+  plugins: [
+    require.resolve('./plugins/tailwind-plugin.js'),
+    require.resolve('./plugins/topics-plugin.js'),
+  ],
 
   // Webfonts must be loaded here rather than via @import in custom.css: the
   // Tailwind `@source` at-rule precedes it there, which makes the @import
@@ -82,6 +97,8 @@ const config = {
           // TODO 👇 might want to uncomment to turn back on if we want to enable user to edit page
           // editUrl: 'https://github.com/femmecubator/open-sprints/tree/main/',
           breadcrumbs: false,
+          // Splits topic files into tabs at each `# Heading`.
+          beforeDefaultRemarkPlugins: [require('./plugins/remark-topic-tabs.js')],
           // Internal planning docs (superpowers plans/specs) live under docs/ for
           // tooling convention but must not publish on the marketing site.
           // NOTE: overriding `exclude` replaces Docusaurus defaults, so the default

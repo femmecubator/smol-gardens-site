@@ -1,6 +1,6 @@
 /**
- * `topicIds` name the topics a step is drawn from. Each must match an `id` in
- * `docs/topics/_configs.ts`; the page builds the links from them.
+ * `topicIds` name the topics a step is drawn from. Each must match a file name in
+ * `docs/topics/` (no extension); ids with no matching file are skipped.
  */
 export type SeedscoreStep = { text: string; topicIds: string[] };
 

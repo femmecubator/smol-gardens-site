@@ -2,18 +2,14 @@ import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import { ArrowRight } from "lucide-react";
 import content from "@site/src/data/about";
-import topics from "@site/docs/topics/_configs";
-
-/** Look a topic up by its `id` so the label always matches the config. */
-const topicById = (id: string) =>
-  Object.values(topics).find((t) => t.id === id);
+import { useTopics } from "@site/src/hooks/useTopics";
 
 function TopicLink({ id }: { id: string }) {
-  const topic = topicById(id);
+  const topic = useTopics().find((t) => t.id === id);
   if (!topic) return null;
   return (
     <Link
-      to={`/docs/topics/${topic.id}`}
+      to={topic.href}
       className="text-[16px] text-[var(--color-accent)] underline"
     >
       Read more: {topic.title}
