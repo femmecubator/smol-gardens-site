@@ -1,13 +1,13 @@
 ---
 # Shown as the page heading, the card heading on /topics, and the sidebar label.
-title: Community Governance
+title: Community Ownership
 # One or two sentences. Shown under the heading and on the /topics card.
 description: Affected communities need continuous mechanisms to shape and critique the AI systems being built for them.
 # Filters on /topics. Reuse existing tags where you can; a new tag adds a new filter.
 tags: [accountability, community]
 # Put the picture in static/img/topics/ and write its path starting from /img.
 # It is cropped to a circle, so keep the subject near the centre.
-image: /img/topics/community-governance.jpg
+image: /img/topics/community-ownership.jpg
 image_alt: Placeholder image — an Akita dog standing on grass beside a pond
 #
 # Below the dashes: every line starting with a single # starts a new tab,
@@ -17,6 +17,13 @@ image_alt: Placeholder image — an Akita dog standing on grass beside a pond
 ---
 
 # Summary
+
+:::tip Challenge
+
+What concrete veto power or governance mechanism does the community hold over
+your tool once it is deployed in the wild?
+
+:::
 
 ## Why it matters
 

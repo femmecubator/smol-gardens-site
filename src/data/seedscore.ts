@@ -32,7 +32,7 @@ const seedscore: SeedscoreContent = {
     },
     {
       text: "Adopt AI usage transparency from end to end, and refocus your practice on prioritizing your community.",
-      topicIds: ["transparency-reporting", "community-governance"],
+      topicIds: ["transparency-reporting", "community-ownership"],
     },
   ],
   ctaLabel: "Start using Seedscore",
