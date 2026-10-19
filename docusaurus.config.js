@@ -148,7 +148,7 @@ const config = {
           { href: 'https://seedscore.netlify.app', label: 'Try Seedscore', position: 'right' },
           { to: '/topics', label: 'Topics', position: 'right' },
           {
-            to: '/docs/topics/community-governance',
+            to: '/docs/topics/community-ownership',
             label: 'Contact us',
             position: 'right',
             className: 'navbar__cta',
