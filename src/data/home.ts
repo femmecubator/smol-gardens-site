@@ -21,7 +21,7 @@ export type HomeHero = {
 export const hero: HomeHero = {
   title: "Accountable AI\nguide for Builders and Educators",
   ctaLabel: "Plan your projects with Seedscore",
-  ctaHref: "/seedscore",
+  ctaHref: "https://seedscore.netlify.app",
   image: "/img/hero-team.jpg",
   imageAlt: "A team of builders and educators collaborating around a table",
 };

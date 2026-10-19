@@ -5,7 +5,7 @@ import { hero, cards } from "@site/src/data/home";
 export default function Home() {
   return (
     <Layout title="Smol Gardens" description="Accountable AI guide for Builders and Educators">
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden font-['Space_Grotesk']">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-x-0 top-0 h-[720px]"
@@ -19,7 +19,7 @@ export default function Home() {
         <div className="relative mx-auto max-w-[1200px] px-6 pb-[83px] pt-[65px] md:px-[61px]">
           <section className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[493fr_492fr] lg:gap-[93px]">
             <div className="flex flex-col gap-8">
-              <h1 className="font-['Nunito_Sans'] text-[40px] font-medium leading-[1.15] text-[var(--color-content-default)] md:text-[48px] md:leading-[56px]">
+              <h1 className="font-['Space_Grotesk'] text-[40px] font-medium leading-[1.15] text-[var(--color-content-default)] md:text-[48px] md:leading-[56px]">
                 {hero.title.split("\n").map((line, i) => (
                   <span key={i}>
                     {i > 0 && <br />}
@@ -27,7 +27,7 @@ export default function Home() {
                   </span>
                 ))}
               </h1>
-              <a href={hero.ctaHref} className="inline-flex h-[48px] w-fit items-center justify-center rounded-[10px] bg-[var(--color-button-primary)] px-[19px] font-['Inter'] text-[16px] font-normal leading-[24px] tracking-[-0.31px] text-white transition-colors hover:bg-[var(--color-button-primary-hover)]">{hero.ctaLabel}</a>
+              <a href={hero.ctaHref} className="inline-flex h-[48px] w-fit items-center justify-center rounded-[10px] bg-[var(--color-button-primary)] px-[19px] font-['Space_Grotesk'] text-[16px] font-normal leading-[24px] tracking-[-0.31px] text-white transition-colors hover:bg-[var(--color-button-primary-hover)]">{hero.ctaLabel}</a>
             </div>
             <div className="lg:justify-self-end">
               <img src={hero.image} alt={hero.imageAlt} className="aspect-[492/328] w-full max-w-[492px] rounded-[24px] object-cover" />

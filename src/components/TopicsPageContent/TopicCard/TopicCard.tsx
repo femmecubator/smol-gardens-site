@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from '@docusaurus/Link'
 import { Lightbulb } from 'lucide-react'
-import { topicHref, type Topic } from '../../../../docs/topics/_configs'
+import type { Topic } from '@site/src/hooks/useTopics'
 
 export default function TopicCard({ topic }: { topic: Topic }) {
   return (
@@ -17,7 +17,7 @@ export default function TopicCard({ topic }: { topic: Topic }) {
         {topic.tags.map((t) => `#${t}`).join(', ')}
       </p>
       <Link
-        to={topicHref(topic)}
+        to={topic.href}
         className="font-['Nunito_Sans'] text-[14px] font-bold text-[var(--color-content-default)] underline"
       >
         Read the topic &gt;

@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react'
 import { Search, ChevronDown, ChevronUp } from 'lucide-react'
-import { ALL_TOPICS, ALL_TAGS } from '../../../docs/topics/_configs'
+import { useTopics, tagsOf } from '@site/src/hooks/useTopics'
 import TopicCard from './TopicCard'
 import type { SelectedTag } from './types'
 
@@ -8,18 +8,19 @@ import type { SelectedTag } from './types'
  * Listing UI for Smol Gardens topics.
  *
  * Mirrors open-sprints' `ProjectsPageContent`: the cards and every filter are
- * derived from `docs/topics/_configs.ts`, so adding a topic there makes it
- * appear here — and links to its `docs/topics/<id>/` page — with no edit to
- * this file.
+ * derived from the front matter of `docs/topics/*.md`, so adding a topic file
+ * makes it appear here — and links to its page — with no edit to this file.
  */
 export default function TopicsPageContent() {
   const [query, setQuery] = useState('')
   const [activeTag, setActiveTag] = useState<SelectedTag>(null)
   const [toolsOpen, setToolsOpen] = useState(true)
+  const topics = useTopics()
+  const ALL_TAGS = useMemo(() => tagsOf(topics), [topics])
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase()
-    return ALL_TOPICS.filter((t) => {
+    return topics.filter((t) => {
       const matchesTag = !activeTag || t.tags.includes(activeTag)
       const matchesQuery =
         !q ||
@@ -28,7 +29,7 @@ export default function TopicsPageContent() {
         t.tags.some((tag) => tag.includes(q))
       return matchesTag && matchesQuery
     })
-  }, [query, activeTag])
+  }, [topics, query, activeTag])
 
   return (
     <div className="mx-auto flex max-w-[1440px] gap-8 px-6 py-10 md:px-10">

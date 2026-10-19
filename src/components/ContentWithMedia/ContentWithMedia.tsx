@@ -3,7 +3,7 @@ import { ImageIcon } from 'lucide-react'
 import styles from './ContentWithMedia.module.css'
 
 type Props = {
-  /** Copy column. Whatever the MDX partial wraps in this component. */
+  /** Copy column. */
   children: React.ReactNode
   /** Absolute path under `static/`, e.g. `/img/foo.jpg`. Omit for the placeholder. */
   src?: string

@@ -6,7 +6,7 @@ import styles from './Banner.module.css'
  *
  * Implements Figma node 2213:1617 from the "PAGE - Project Page template"
  * section: a centred Work Sans title over an Inter subtitle. Both values come
- * from `docs/topics/_configs.ts` via the page shell, so the banner and the
+ * from the topic's front matter via `src/theme/DocItem/Content`, so the banner and the
  * topic card can never disagree.
  */
 const Banner = ({

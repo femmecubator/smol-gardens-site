@@ -33,18 +33,34 @@ const config = {
     hooks: {
       onBrokenMarkdownLinks: 'warn',
     },
+    // Topic pages get their heading from the banner in
+    // src/theme/DocItem/Content and are laid out as tabs, which leaves no room
+    // for a table of contents. Default both off here so topic files stay pure
+    // content and editors never need to set them.
+    parseFrontMatter: async (params) => {
+      const result = await params.defaultParseFrontMatter(params)
+      if (params.filePath.includes('/docs/topics/')) {
+        result.frontMatter.hide_title ??= true
+        result.frontMatter.hide_table_of_contents ??= true
+      }
+      return result
+    },
   },
 
-  plugins: [require.resolve('./plugins/tailwind-plugin.js')],
+  plugins: [
+    require.resolve('./plugins/tailwind-plugin.js'),
+    require.resolve('./plugins/topics-plugin.js'),
+  ],
 
   // Webfonts must be loaded here rather than via @import in custom.css: the
   // Tailwind `@source` at-rule precedes it there, which makes the @import
   // invalid so PostCSS strips it and no font loads at all.
   // Families come from the Figma tokens — Work Sans (H1), Montserrat
-  // (display), Inter (body/labels) — plus Nunito Sans for the marketing pages.
+  // (display), Inter (body/labels) — plus Nunito Sans for the marketing pages
+  // and Space Grotesk for the homepage (brand update).
   stylesheets: [
     {
-      href: 'https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700&family=Inter:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap',
+      href: 'https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700&family=Inter:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap',
       type: 'text/css',
     },
   ],
@@ -82,6 +98,8 @@ const config = {
           // TODO 👇 might want to uncomment to turn back on if we want to enable user to edit page
           // editUrl: 'https://github.com/femmecubator/open-sprints/tree/main/',
           breadcrumbs: false,
+          // Splits topic files into tabs at each `# Heading`.
+          beforeDefaultRemarkPlugins: [require('./plugins/remark-topic-tabs.js')],
           // Internal planning docs (superpowers plans/specs) live under docs/ for
           // tooling convention but must not publish on the marketing site.
           // NOTE: overriding `exclude` replaces Docusaurus defaults, so the default
@@ -127,7 +145,7 @@ const config = {
         items: [
           { to: '/', label: 'Home', position: 'right', activeBaseRegex: '^/$' },
           { to: '/about', label: 'About', position: 'right' },
-          { to: '/seedscore', label: 'Try Seedscore', position: 'right' },
+          { href: 'https://seedscore.netlify.app', label: 'Try Seedscore', position: 'right' },
           { to: '/topics', label: 'Topics', position: 'right' },
           {
             to: '/docs/topics/community-governance',

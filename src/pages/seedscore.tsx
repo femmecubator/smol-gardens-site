@@ -2,13 +2,10 @@ import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import { ArrowRight } from "lucide-react";
 import content from "@site/src/data/seedscore";
-import topics from "@site/docs/topics/_configs";
-
-/** Look a topic up by its `id` so the label always matches the config. */
-const topicById = (id: string) =>
-  Object.values(topics).find((t) => t.id === id);
+import { useTopics } from "@site/src/hooks/useTopics";
 
 export default function Seedscore() {
+  const topics = useTopics();
   return (
     <Layout title="Seedscore Tool" description="Seedscore Impact Assessment Tool for accountable AI workflows">
       <div>
@@ -38,11 +35,11 @@ export default function Seedscore() {
                   {b.text}
                   <span className="mt-1 flex flex-wrap gap-x-3 text-[14px]">
                     {b.topicIds.map((id) => {
-                      const topic = topicById(id);
+                      const topic = topics.find((t) => t.id === id);
                       return topic ? (
                         <Link
                           key={id}
-                          to={`/docs/topics/${topic.id}`}
+                          to={topic.href}
                           className="text-[var(--color-accent)] underline"
                         >
                           {topic.title}

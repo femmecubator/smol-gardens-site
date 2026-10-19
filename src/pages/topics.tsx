@@ -4,7 +4,7 @@ import TopicsPageContent from '@site/src/components/TopicsPageContent'
 
 /**
  * Marketing route for the topic listing. All content and filters come from
- * `docs/topics/_configs.ts` via <TopicsPageContent />; this file only supplies
+ * `docs/topics/*.md` via <TopicsPageContent />; this file only supplies
  * the page shell.
  */
 export default function Topics() {
