@@ -40,7 +40,9 @@ const about: AboutContent = {
   challengesHeading: "Current Challenges: Human-AI Collaborative Workflows",
   intro: [
     "Designers, builders, and civic technologists are facing a core problem: how to develop civic tech responsibly in the age of AI without creating redundant, unmaintainable, or harmful solutions.",
-    "Is it possible to create meaningful work using LLM models? When a new wave of builders are shipping websites in less than a day, there's a clear gap in accountability that needs to be addressed.",
+    "Who owns an AI-built tool when it fails? Whose data is protected? What happens to communities served by hastily-built systems? These questions go unasked. Large organizations justify AI as cost-cutting, ignoring real harms: data center expansion, environmental costs, unauthorized creative labor use, and loss of community accountability.
+
+For civic tech to actually serve communities, builders need to understand what guardrails matter in the age of Human-AI collaboration. That's what Smol Gardens is about—building intentionally with small, right-sized models instead of defaulting to what Big Tech is providing us.",
   ],
   challengesLede: "This creates several cascading challenges:",
   challenges: [
@@ -67,9 +69,8 @@ const about: AboutContent = {
   ],
   whoHeading: "Who Is This For?",
   whoParagraphs: [
-    "The Smol Gardens Project is a guide created for designers and builders to consider alternative small, local and open source AI models.",
-    "You can use the Seedscore Impact Assessment Tool to measure your ecological footprint and create transparent tracking against responsible computing principles",
-    "In the workshops, participants will be invited to plan their project and incorporate accountable AI in their workflows.",
+    "The Smol Gardens Project is a guide for designers and builders exploring alternative small, local, and open-source AI models.",
+    "Participants in our workshops learn to plan projects and integrate accountable AI into their workflows, using the Seedscore Impact Assessment Tool to measure their ecological footprint and track responsible computing principles.",
   ],
   ctaLabel: "Check out our research docs",
   ctaHref: "/topics",
