@@ -67,9 +67,9 @@ const about: AboutContent = {
   ],
   whoHeading: "Who Is This For?",
   whoParagraphs: [
-    "The Smol Gardens Project is a guide created for technologists, designers, researchers or educators who are already using AI tools in their workflow.",
-    "You can use the Seedscore Impact Assessment Tool as a framework or guide for your workflow, Smol gardens aims to educate and push for alternatives to using LLM models, with an end goal to incorporate Accountable tech principles in a builder's workflow.",
-    "In the workshops, participants will be invited to document and audit their work using an impact assessment framework.",
+    "The Smol Gardens Project is a guide created for designers and builders to consider alternative small, local and open source AI models.",
+    "You can use the Seedscore Impact Assessment Tool to measure your ecological footprint and create transparent tracking against responsible computing principles",
+    "In the workshops, participants will be invited to plan their project and incorporate accountable AI in their workflows.",
   ],
   ctaLabel: "Check out our research docs",
   ctaHref: "/topics",
