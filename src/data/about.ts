@@ -40,9 +40,8 @@ const about: AboutContent = {
   challengesHeading: "Current Challenges: Human-AI Collaborative Workflows",
   intro: [
     "Designers, builders, and civic technologists are facing a core problem: how to develop civic tech responsibly in the age of AI without creating redundant, unmaintainable, or harmful solutions.",
-    "Who owns an AI-built tool when it fails? Whose data is protected? What happens to communities served by hastily-built systems? These questions go unasked. Large organizations justify AI as cost-cutting, ignoring real harms: data center expansion, environmental costs, unauthorized creative labor use, and loss of community accountability.
-
-For civic tech to actually serve communities, builders need to understand what guardrails matter in the age of Human-AI collaboration. That's what Smol Gardens is about—building intentionally with small, right-sized models instead of defaulting to what Big Tech is providing us.",
+    "Who owns an AI-built tool when it fails? Whose data is protected? What happens to communities served by hastily-built systems? These questions go unasked. Large organizations justify AI as cost-cutting, ignoring real harms: data center expansion, environmental costs, unauthorized creative labor use, and loss of community accountability.",
+    "For civic tech to actually serve communities, builders need to understand what guardrails matter in the age of Human-AI collaboration. That's what Smol Gardens is about—building intentionally with small, right-sized models instead of defaulting to what Big Tech is providing us.",
   ],
   challengesLede: "This creates several cascading challenges:",
   challenges: [
