@@ -47,33 +47,38 @@ For civic tech to actually serve communities, builders need to understand what g
   challengesLede: "This creates several cascading challenges:",
   challenges: [
     {
-      lead: "Lack of frameworks for responsible AI-enabled design ",
-      rest: "- there's no clear, accessible methodology that allows practitioners to balance speed with responsibility while building civic tech.",
+      lead: "Velocity Over Responsibility",
+      rest: "- While foundational ethical frameworks exist, they are not widely disseminated or adapted for the speed of generative AI. Practitioners lack accessible, real-time methodologies to help them move fast without sacrificing accountability when building civic tools.",
     },
     {
-      lead: "Lack of transparency and unaccountability ",
+      lead: "Lack of transparency about tradeoffs",
       rest: "- current AI development practices often lack transparency about tradeoffs, making it difficult for communities to understand how AI systems will impact them or to offer meaningful critique.",
     },
     {
       lead: "Scale mismatch",
-      rest: " - large language models (LLMs) are presented as the default solution, but they may be overkill for many applications and come with disproportionate environmental and resource costs.",
+      rest: " - Large language models (LLMs) are often pushed as the default solution, even when they are overkill and carry heavy environmental and resource costs.",
     },
     {
-      lead: "Weakened community agency",
-      rest: " - without continuous accountability mechanisms and openness to critique, affected communities lose the ability to shape and govern the AI systems being built for them.",
+      lead: "Erosion of community agency",
+      rest: " - Without continuous accountability mechanisms and openness, affected communities lose their power to shape and govern the AI systems built for them.",
     },
     {
-      lead: "No clear alternative path ",
-      rest: "- practitioners who want to build differently lack both a practical toolkit and evidence that smaller, more efficient AI models can deliver meaningful civic tech solutions.",
+      lead: "No clear and easy to use alternative path",
+      rest: "- Non-technical practitioners who want to build differently lack both a practical toolkit and evidence that smaller, more efficient AI models can deliver meaningful civic tech solutions.",
+    },
+    {
+      lead: "Asymmetric Control & The Trust Gap",
+      rest: "- Because models hide their internal logic, users cannot distinguish between facts and confident hallucinations. This creates a dangerous pendulum swing in trust: users either blindly over-trust the AI or abandon it entirely after one mistake.",
     },
   ],
   whoHeading: "Who Is This For?",
   whoParagraphs: [
-    "The Smol Gardens Project is a guide for designers and builders exploring alternative small, local, and open-source AI models.",
-    "Participants in our workshops learn to plan projects and integrate accountable AI into their workflows, using the Seedscore Impact Assessment Tool to measure their ecological footprint and track responsible computing principles.",
+    "The Smol Gardens Project is a dedicated guide for designers and builders exploring alternative, community-owned, localized, and open-source AI models.",
+    "Through it, practitioners leverage resources like the Seedscore Impact Assessment Tool to quantify their ecological footprint and measure projects against responsible computing standards.",
+    "Ultimately, workshop participants learn to plan sustainable initiatives and embed accountable AI directly into their daily workflows."
   ],
-  ctaLabel: "Check out our research docs",
-  ctaHref: "/topics",
+  ctaLabel: "Search through a reading list",
+  ctaHref: "https://askwiki.netlify.app/",
   image: "/img/about-postits.jpg",
   imageAlt: "Sticky notes on a wall mapping out challenges around AI accountability",
   approachHeading: "Our Approach",
